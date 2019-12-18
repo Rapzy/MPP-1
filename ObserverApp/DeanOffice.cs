@@ -8,19 +8,19 @@ namespace ObserverApp
 {
     public class DeanOffice
     {
-        public delegate string EventHandler(string message);
+        public delegate void EventHandler(string message);
         public event EventHandler OnSessionStart, OnNewMessage, OnNewShedule;
-        public string SessionStart()
+        public void SessionStart()
         {
-            return OnSessionStart?.Invoke("Session is started"); 
+            OnSessionStart("Session is started");
         }
-        public string NewMessage()
+        public void NewMessage()
         {
-            return OnNewMessage?.Invoke("You have a new message");
+            OnNewMessage?.Invoke("You have a new message");
         }
-        public string NewShedule()
+        public void NewShedule()
         {
-            return OnNewShedule?.Invoke("Shedule is updated");
+            OnNewShedule?.Invoke("Shedule is updated");
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ObserverApp
     public partial class MainForm : Form
     {
         public static DeanOffice deanOffice = new DeanOffice();
+        public static string cachedText = "";
         public MainForm()
         {
             InitializeComponent();
@@ -24,7 +25,9 @@ namespace ObserverApp
 
         private void sessionStartButton_Click(object sender, EventArgs e)
         {
-            logTextBox.Text += deanOffice.SessionStart();
+            deanOffice.SessionStart();
+            logTextBox.Text += cachedText;
+            cachedText = "";
         }
 
         private void regButton_Click(object sender, EventArgs e)
@@ -34,12 +37,16 @@ namespace ObserverApp
 
         private void sendMsgButton_Click(object sender, EventArgs e)
         {
-            logTextBox.Text += deanOffice.NewMessage();
+            deanOffice.NewMessage();
+            logTextBox.Text += cachedText;
+            cachedText = "";
         }
 
         private void newEventButton_Click(object sender, EventArgs e)
         {
-            logTextBox.Text += deanOffice.NewShedule();
+            deanOffice.NewShedule();
+            logTextBox.Text += cachedText;
+            cachedText = "";
         }
     }
 }

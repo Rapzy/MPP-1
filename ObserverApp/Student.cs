@@ -21,17 +21,17 @@ namespace ObserverApp
             if (newShedule)
                 MainForm.deanOffice.OnNewShedule += GetSessionStart;
         }
-        public string GetSessionStart(string message)
+        public void GetSessionStart(string message)
         {
-            return $"Student {FullName} [{Group}] got message: {message}\n";
+            MainForm.cachedText += $"Student {FullName} [{Group}] got message: {message}\n";
         }
-        public string GetNewMessage(string message)
+        public void GetNewMessage(string message)
         {
-            return $"Student {FullName} [{Group}] got message: {message}\n";
+            MainForm.cachedText += $"Student {FullName} [{Group}] got message: {message}\n";
         }
-        public string GetNewShedule(string message)
+        public void GetNewShedule(string message)
         {
-            return $"Student {FullName} [{Group}] got message: {message}\n";
+            MainForm.cachedText += $"Student {FullName} [{Group}] got message: {message}\n";
         }
     }
 }
